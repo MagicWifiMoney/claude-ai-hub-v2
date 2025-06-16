@@ -1,0 +1,21 @@
+/* Custom styles for the rendered markdown content to enhance readability */
+.prose pre {
+    @apply bg-[#282a36] rounded-lg p-4 text-sm;
+}
+
+.prose code {
+    @apply text-sm;
+}
+
+.prose table {
+    @apply w-full;
+}
+
+.prose th {
+    @apply bg-base-200;
+}
+
+.prose h1 > code, .prose h2 > code, .prose h3 > code {
+    @apply bg-neutral/10 text-neutral font-mono py-1 px-2 rounded-md;
+    font-size: 0.8em !important;
+}

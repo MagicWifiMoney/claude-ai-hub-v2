@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompts Library - Claude AI HUB V2</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../_css/style.css">
+</head>
+<body class="bg-base-200 font-sans">
+    <div class="drawer lg:drawer-open">
+        <input id="mobile-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col bg-base-100">
+            <!-- Navbar -->
+            <header class="navbar bg-base-100 sticky top-0 z-30 w-full border-b border-base-300">
+                <div class="flex-none lg:hidden">
+                    <label for="mobile-drawer" class="btn btn-square btn-ghost">
+                        <i data-lucide="menu"></i>
+                    </label>
+                </div>
+                <div class="flex-1">
+                    <span class="font-semibold text-lg ml-2">Prompt Library</span>
+                </div>
+                <div id="auth-container-dashboard" class="flex-none gap-2">
+                    <!-- Dashboard auth nav will be injected here -->
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                <div class="container mx-auto">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <h1 class="text-3xl font-bold">Prompts</h1>
+                        <button id="new-prompt-btn" class="btn btn-primary"><i data-lucide="plus"></i> New Prompt</button>
+                    </div>
+
+                    <!-- Search and Filters -->
+                    <div class="mb-6 flex flex-col sm:flex-row flex-wrap gap-4 p-4 bg-base-200/50 rounded-lg">
+                        <div class="form-control flex-grow min-w-64 relative">
+                             <label class="input input-bordered flex items-center gap-2">
+                                <i data-lucide="search" class="w-4 h-4 text-base-content/50"></i>
+                                <input 
+                                    id="search-input" 
+                                    type="text" 
+                                    class="grow" 
+                                    placeholder="Search prompts instantly..." 
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                />
+                            </label>
+                            <div id="search-status" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-xs text-base-content/50 pointer-events-none"></div>
+                        </div>
+                        <div id="tag-filters" class="flex flex-wrap items-center gap-2">
+                            <!-- Tag filter buttons will be dynamically injected here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Prompts Grid -->
+                    <div id="prompts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Prompt cards will be dynamically injected here -->
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="drawer-side z-40">
+            <label for="mobile-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+            <div class="p-4 w-64 min-h-full bg-base-200 text-base-content">
+                <a href="../index.html" class="btn btn-ghost text-xl font-bold gap-2 mb-6">
+                    <img src="../_assets/logo.svg" alt="Claude AI HUB V2 Logo" class="h-6 w-6">
+                    Claude AI HUB V2
+                </a>
+                <ul class="menu space-y-2">
+                    <li><a href="index.html"><i data-lucide="home"></i>Home</a></li>
+                    <li><a href="prompts.html" class="active"><i data-lucide="library"></i>Prompts</a></li>
+                    <li><a href="workflows.html"><i data-lucide="git-merge"></i>Workflows</a></li>
+                    <li><a href="tools.html"><i data-lucide="wrench"></i>Tools</a></li>
+                    <li><a href="university.html"><i data-lucide="graduation-cap"></i>University</a></li>
+                    <li><a href="../blog/index.html"><i data-lucide="newspaper"></i>Blog</a></li>
+                    <div class="divider"></div>
+                    <li><a href="admin/index.html"><i data-lucide="shield"></i>Admin Panel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prompt Modal -->
+    <dialog id="prompt-modal" class="modal">
+        <div class="modal-box w-11/12 max-w-2xl">
+            <h3 id="modal-title" class="font-bold text-lg">Create New Prompt</h3>
+            <form id="prompt-form" class="py-4 space-y-4">
+                <input type="hidden" id="prompt-id">
+                <div>
+                    <label class="label" for="prompt-title">
+                        <span class="label-text">Title</span>
+                    </label>
+                    <input id="prompt-title" type="text" placeholder="e.g., Social Media Content Calendar" class="input input-bordered w-full" required>
+                </div>
+                <div>
+                    <label class="label" for="prompt-body">
+                        <span class="label-text">Body</span>
+                    </label>
+                    <textarea id="prompt-body" class="textarea textarea-bordered w-full" rows="5" placeholder="Generate a one-month content calendar for a SaaS company on Twitter and LinkedIn." required></textarea>
+                </div>
+                <div>
+                    <label class="label" for="prompt-tags">
+                        <span class="label-text">Tags (comma-separated)</span>
+                    </label>
+                    <input id="prompt-tags" type="text" placeholder="e.g., Marketing, Social Media" class="input input-bordered w-full">
+                </div>
+                <div class="modal-action mt-6">
+                    <button id="cancel-modal-btn" type="button" class="btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Prompt</button>
+                </div>
+            </form>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+    <!-- Related Prompts Modal -->
+    <dialog id="related-prompts-modal" class="modal">
+        <div class="modal-box w-11/12 max-w-3xl">
+            <div id="related-modal-content">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="../_js/main.js"></script>
+    <script type="module" src="../_js/auth_ui.js"></script>
+    <script type="module" src="../_js/enhanced_auth.js"></script>
+    <script type="module" src="../_js/theme.js"></script>
+    <script type="module" src="../_js/notifications.js"></script>
+    <script type="module" src="../_js/instant_search.js"></script>
+    <script type="module" src="../_js/prompts.js"></script>
+</body>
+</html>

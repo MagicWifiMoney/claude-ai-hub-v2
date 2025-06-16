@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Claude AI HUB V2</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../_css/style.css">
+</head>
+<body class="bg-base-100 font-sans">
+    <div class="drawer">
+        <input id="mobile-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+            <!-- Navbar -->
+            <header class="navbar bg-base-100 sticky top-0 z-30 w-full backdrop-blur transition-all duration-100 border-b border-base-200">
+                <div class="container mx-auto px-4">
+                    <div class="flex-1">
+                        <a href="../index.html" class="btn btn-ghost text-xl font-bold gap-2">
+                           <img src="../_assets/logo.svg" alt="Claude AI HUB V2 Logo" class="h-6 w-6">
+                           Claude AI HUB V2
+                        </a>
+                    </div>
+                    <div class="flex-none hidden lg:flex">
+                        <ul class="menu menu-horizontal px-1">
+                            <li><a href="../index.html" class="font-medium">Home</a></li>
+                            <li><a href="../pricing.html" class="font-medium">Pricing</a></li>
+                            <li><a href="index.html" class="font-medium active">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex-none">
+                        <button id="theme-toggle" class="btn btn-ghost btn-circle">
+                            <i data-lucide="sun" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div id="auth-container-desktop" class="flex-none gap-2 ml-2">
+                        <!-- Desktop auth buttons will be injected here -->
+                    </div>
+                    <div class="flex-none lg:hidden">
+                        <label for="mobile-drawer" class="btn btn-square btn-ghost">
+                            <i data-lucide="menu"></i>
+                        </label>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="py-20 flex-grow">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">The AI Hub Blog</h1>
+                        <p class="text-lg text-base-content/70">Insights, news, and tutorials on the world of artificial intelligence.</p>
+                    </div>
+
+                    <div id="blog-posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Blog posts will be dynamically loaded here -->
+                        <div class="flex justify-center items-center col-span-full py-10">
+                            <span class="loading loading-lg loading-spinner text-primary"></span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="footer p-10 bg-base-200 text-base-content">
+                <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-flow-col gap-8">
+                    <aside>
+                        <a href="../index.html" class="flex items-center gap-2 mb-2">
+                            <img src="../_assets/logo.svg" alt="Logo" class="h-8 w-8">
+                            <span class="font-bold text-lg">Claude AI HUB V2</span>
+                        </a>
+                        <p>Supercharging your productivity.<br>&copy; 2025. All Rights Reserved.</p>
+                    </aside> 
+                    <nav>
+                        <h6 class="footer-title">Product</h6> 
+                        <a href="../pricing.html" class="link link-hover">Pricing</a>
+                        <a href="../dashboard/prompts.html" class="link link-hover">Prompts</a>
+                        <a href="../dashboard/workflows.html" class="link link-hover">Workflows</a>
+                    </nav> 
+                    <nav>
+                        <h6 class="footer-title">Resources</h6> 
+                        <a href="index.html" class="link link-hover">Blog</a>
+                        <a href="../dashboard/university.html" class="link link-hover">University</a>
+                        <a href="#" class="link link-hover">Support</a>
+                    </nav> 
+                    <nav>
+                        <h6 class="footer-title">Legal</h6> 
+                        <a href="#" class="link link-hover">Terms of use</a>
+                        <a href="#" class="link link-hover">Privacy policy</a>
+                        <a href="#" class="link link-hover">Cookie policy</a>
+                    </nav>
+                </div>
+            </footer>
+        </div> 
+
+        <!-- Mobile Drawer Menu -->
+        <div class="drawer-side z-40">
+            <label for="mobile-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu p-4 w-80 min-h-full bg-base-100">
+                <li class="mb-4">
+                    <a href="../index.html" class="text-xl font-bold gap-2">
+                       <img src="../_assets/logo.svg" alt="Claude AI HUB V2 Logo" class="h-6 w-6">
+                       Claude AI HUB V2
+                    </a>
+                </li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <div id="auth-container-mobile">
+                     <!-- Mobile auth buttons will be injected here -->
+                </div>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="../_js/main.js"></script>
+    <script type="module" src="../_js/auth.js"></script>
+    <script type="module" src="../_js/auth_ui.js"></script>
+    <script type="module" src="../_js/enhanced_auth.js"></script>
+    <script type="module" src="../_js/theme.js"></script>
+    <script type="module" src="../_js/notifications.js"></script>
+    <script type="module" src="../_js/blog.js"></script>
+</body>
+</html>

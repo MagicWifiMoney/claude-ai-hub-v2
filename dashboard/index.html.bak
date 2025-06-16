@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Claude AI HUB V2</title>
+    <script type="module">import { checkAuth } from '../_js/auth.js'; checkAuth();</script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../_css/style.css">
+</head>
+<body class="bg-base-200 font-sans">
+    <div class="drawer lg:drawer-open">
+        <input id="mobile-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col bg-base-100">
+            <!-- Navbar -->
+            <header class="navbar bg-base-100 sticky top-0 z-30 w-full border-b border-base-300">
+                <div class="flex-none lg:hidden">
+                    <label for="mobile-drawer" class="btn btn-square btn-ghost">
+                        <i data-lucide="menu"></i>
+                    </label>
+                </div>
+                <div class="flex-1">
+                     <div class="form-control hidden md:block">
+                      <input type="text" placeholder="Search prompts, workflows..." class="input input-bordered w-full md:w-96" />
+                    </div>
+                </div>
+                <div id="auth-container-dashboard" class="flex-none gap-2">
+                    <!-- Dashboard auth nav will be injected here -->
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                <div class="container mx-auto">
+                    <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+                    
+                    <h2 class="text-2xl font-semibold mb-4">Your Pinned Prompts</h2>
+                    <div id="pinned-prompts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Pinned prompts will be dynamically loaded here -->
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="drawer-side z-40">
+            <label for="mobile-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+            <div class="p-4 w-64 min-h-full bg-base-200 text-base-content">
+                <a href="../index.html" class="btn btn-ghost text-xl font-bold gap-2 mb-6">
+                    <img src="../_assets/logo.svg" alt="Claude AI HUB V2 Logo" class="h-6 w-6">
+                    Claude AI HUB V2
+                </a>
+                <ul class="menu space-y-2">
+                    <li><a href="index.html" class="active"><i data-lucide="home"></i>Home</a></li>
+                    <li><a href="prompts.html"><i data-lucide="library"></i>Prompts</a></li>
+                    <li><a href="workflows.html"><i data-lucide="git-merge"></i>Workflows</a></li>
+                    <li><a href="tools.html"><i data-lucide="wrench"></i>Tools</a></li>
+                    <li><a href="university.html"><i data-lucide="graduation-cap"></i>University</a></li>
+                    <li><a href="../blog/index.html"><i data-lucide="newspaper"></i>Blog</a></li>
+                    <div class="divider"></div>
+                    <li><a href="admin/index.html"><i data-lucide="shield"></i>Admin Panel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="../_js/main.js"></script>
+    <script type="module" src="../_js/auth_ui.js"></script>
+    <script type="module" src="../_js/dashboard.js"></script>
+</body>
+</html>

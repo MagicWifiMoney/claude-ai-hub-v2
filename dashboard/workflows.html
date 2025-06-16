@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflows - Claude AI HUB V2</title>
+    <script type="module">import { checkAuth } from '../_js/auth.js'; checkAuth();</script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../_css/style.css">
+</head>
+<body class="bg-base-200 font-sans">
+    <div class="drawer lg:drawer-open">
+        <input id="mobile-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col bg-base-100">
+            <!-- Navbar -->
+            <header class="navbar bg-base-100 sticky top-0 z-30 w-full border-b border-base-300">
+                <div class="flex-none lg:hidden">
+                    <label for="mobile-drawer" class="btn btn-square btn-ghost">
+                        <i data-lucide="menu"></i>
+                    </label>
+                </div>
+                <div class="flex-1">
+                     <div class="form-control hidden md:block">
+                      <input type="text" placeholder="Search workflows..." class="input input-bordered w-full md:w-96" />
+                    </div>
+                </div>
+                <div id="auth-container-dashboard" class="flex-none gap-2">
+                    <!-- Dashboard auth nav will be injected here -->
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                <div class="container mx-auto">
+                    <h1 class="text-3xl font-bold mb-2">Workflow Library</h1>
+                    <p class="text-base-content/70 mb-8">Automate your tasks with one-click importable workflows for tools like n8n.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Workflow Card 1 -->
+                        <div class="card bg-base-200/50 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="card-body">
+                                <h3 class="card-title">Automated Social Media Poster</h3>
+                                <p class="text-sm text-base-content/70">When a new blog post is published, automatically summarize it and post to Twitter and LinkedIn.</p>
+                                <div class="card-actions justify-end mt-4">
+                                    <button class="btn btn-secondary btn-sm btn-import-n8n" data-n8n-json='{"id": "wf_1", "title": "Automated Social Media Poster", "n8n_json": {"name": "Automated Social Media Poster", "nodes": [{"parameters":{},"name":"Start","type":"n8n-nodes-base.start","typeVersion":1,"position":[240,300]}]}}'>Import to n8n</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Workflow Card 2 -->
+                        <div class="card bg-base-200/50 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="card-body">
+                                <h3 class="card-title">Daily News Briefing Generator</h3>
+                                <p class="text-sm text-base-content/70">Fetch top news from RSS feeds, summarize with AI, and send a daily briefing to your email.</p>
+                                <div class="card-actions justify-end mt-4">
+                                    <button class="btn btn-secondary btn-sm btn-import-n8n" data-n8n-json='{"id": "wf_2", "title": "Daily News Briefing Generator", "n8n_json": {"name": "Daily News Briefing Generator", "nodes": [{"parameters":{"url":"https://example.com/rss"},"name":"RSS Feed","type":"n8n-nodes-base.rssFeed","typeVersion":1,"position":[240,300]}]}}'>Import to n8n</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Workflow Card 3 -->
+                        <div class="card bg-base-200/50 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="card-body">
+                                <h3 class="card-title">E-commerce Order Fulfillment</h3>
+                                <p class="text-sm text-base-content/70">When a new Shopify order comes in, add the customer to Mailchimp and create a shipping label.</p>
+                                <div class="card-actions justify-end mt-4">
+                                    <button class="btn btn-secondary btn-sm btn-import-n8n" data-n8n-json='{"id": "wf_3", "title": "E-commerce Order Fulfillment", "n8n_json": {"name": "E-commerce Order Fulfillment", "nodes": [{"parameters":{},"name":"Shopify Trigger","type":"n8n-nodes-base.shopifyTrigger","typeVersion":1,"position":[240,300]}]}}'>Import to n8n</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Premium Workflow Card 1 -->
+                        <div class="card bg-base-200/50 shadow-sm hover:shadow-md transition-shadow" data-premium="true">
+                            <div class="card-body">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="card-title">AI Content Repurposing</h3>
+                                    <div class="badge badge-primary font-semibold">PRO</div>
+                                </div>
+                                <p class="text-sm text-base-content/70">Convert long-form blog posts into Twitter threads, LinkedIn articles, and email newsletters automatically.</p>
+                                <div class="card-actions justify-end mt-4">
+                                    <button class="btn btn-secondary btn-sm btn-import-n8n" data-n8n-json='{"id": "wf_4_pro", "title": "AI Content Repurposing", "n8n_json": {"name": "AI Content Repurposing", "nodes": []}}'>Access Workflow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Premium Workflow Card 2 -->
+                        <div class="card bg-base-200/50 shadow-sm hover:shadow-md transition-shadow" data-premium="true">
+                            <div class="card-body">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="card-title">Competitor Monitoring</h3>
+                                    <div class="badge badge-primary font-semibold">PRO</div>
+                                </div>
+                                <p class="text-sm text-base-content/70">Scrape competitor sites and social media, analyze sentiment, and report findings to Slack.</p>
+                                <div class="card-actions justify-end mt-4">
+                                    <button class="btn btn-secondary btn-sm btn-import-n8n" data-n8n-json='{"id": "wf_5_pro", "title": "Competitor Monitoring", "n8n_json": {"name": "Competitor Monitoring", "nodes": []}}'>Access Workflow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="drawer-side z-40">
+            <label for="mobile-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+            <div class="p-4 w-64 min-h-full bg-base-200 text-base-content">
+                <a href="../index.html" class="btn btn-ghost text-xl font-bold gap-2 mb-6">
+                    <img src="../_assets/logo.svg" alt="Claude AI HUB V2 Logo" class="h-6 w-6">
+                    Claude AI HUB V2
+                </a>
+                <ul class="menu space-y-2">
+                    <li><a href="index.html"><i data-lucide="home"></i>Home</a></li>
+                    <li><a href="prompts.html"><i data-lucide="library"></i>Prompts</a></li>
+                    <li><a href="workflows.html" class="active"><i data-lucide="git-merge"></i>Workflows</a></li>
+                    <li><a href="tools.html"><i data-lucide="wrench"></i>Tools</a></li>
+                    <li><a href="university.html"><i data-lucide="graduation-cap"></i>University</a></li>
+                    <li><a href="../blog/index.html"><i data-lucide="newspaper"></i>Blog</a></li>
+                    <div class="divider"></div>
+                    <li><a href="admin/index.html"><i data-lucide="shield"></i>Admin Panel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="../_js/main.js"></script>
+    <script type="module" src="../_js/auth_ui.js"></script>
+    <script type="module" src="../_js/workflows.js"></script>
+</body>
+</html>

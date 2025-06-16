@@ -1,0 +1,15 @@
+/* 
+This file can be used for any custom CSS that isn't easily handled by Tailwind/DaisyUI.
+For this project, the combination of Tailwind and DaisyUI is sufficient,
+so this file is intentionally left minimal.
+*/
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
