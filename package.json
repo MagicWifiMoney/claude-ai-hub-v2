@@ -1,0 +1,17 @@
+{
+  "name": "claude-ai-hub-v2",
+  "version": "2.0.0",
+  "description": "The Ultimate AI Companion - Enhanced with beautiful UI and modern features",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide": "^0.263.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
